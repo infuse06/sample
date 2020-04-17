@@ -1,0 +1,30 @@
+package kr.go.negga.bbs.service;
+
+public class Snippet {
+	// 회원가입
+		@RequestMapping(value = "/bbs/userInsert.do")
+		public ModelAndView bbsuserInsert(@ModelAttribute("userVO") UserVO userVO, ModelAndView mv) throws Exception {
+			
+			System.out.println("입력한 아이디 정보 : " + userVO.getId());
+			System.out.println("입력한 비밀번호 정보 : " + userVO.getPass());
+			
+			// bbsService.userInsert에 bbsVO를 넣어 보내고 가저온 값을 int result에 넣는다.
+			int result = bbsService.userInsert(userVO);
+			
+			// 확인
+			System.out.println(result);
+			
+			// 회원가입이 되지 않았을 때 보내줄 메세지
+			String message = "가입되지 않았습니다.";
+			
+			// ModelAndView에 addObject로 결과값과 메세지를 붙혀준다.
+			mv.addObject("result", result);
+			mv.addObject("message", message);
+			
+			// 회원가입이 되면 다시 bbsList로 보내준다.
+			mv.setViewName("/bbs/bbsList");	
+		
+			return mv;
+		}
+}
+

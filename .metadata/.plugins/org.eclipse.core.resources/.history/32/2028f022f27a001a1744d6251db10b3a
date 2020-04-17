@@ -1,0 +1,21 @@
+package kr.go.negga.bbs.service.impl;
+
+import java.util.List;
+
+import kr.go.negga.bbs.service.BbsVO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
+
+@Mapper("bbsMapper")
+public class BbsMapper extends EgovAbstractMapper{
+	
+	public List<BbsVO> selectBbsList(BbsVO bbsVO) throws Exception{
+		return selectList("selectBbsList",bbsVO);
+	}
+	
+	//count 조회 		selectOne
+	//상세 조회     		selectOne
+	//입력                         insert
+	//수정        		update
+	//삭제			delete
+}

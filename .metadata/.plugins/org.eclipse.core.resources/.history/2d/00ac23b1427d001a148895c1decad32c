@@ -1,0 +1,5 @@
+package kr.go.negga.bbs.service;
+
+public class userVO {
+
+}

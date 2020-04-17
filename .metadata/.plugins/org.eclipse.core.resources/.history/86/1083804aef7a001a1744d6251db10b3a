@@ -1,0 +1,12 @@
+package kr.go.negga.bbs.service;
+
+public class BbsVO {
+	private String name;
+	private String password;
+	private String board_no;
+	private String board_sub;
+	private String board_text;
+	private String board_date;
+	
+	
+}

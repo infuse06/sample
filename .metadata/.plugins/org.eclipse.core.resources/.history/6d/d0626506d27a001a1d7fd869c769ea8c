@@ -1,0 +1,27 @@
+package kr.go.negga.bbs.service;
+
+public class BbsVO {
+	private String id;
+	private String pass;
+	private String bno;
+	private String title;
+	private String content;
+	private DATE bdate;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	
+}

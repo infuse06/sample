@@ -1,0 +1,32 @@
+package kr.go.negga.bbsji.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import kr.go.negga.bbsji.service.BbsjiService;
+import kr.go.negga.bbsji.service.BbsjiVO;
+
+import org.springframework.stereotype.Service;
+
+//1번째
+@Service("bbsjiService")
+public class BbsjiServiceImpl implements BbsjiService{
+
+	//2번째
+	@Resource(name="bbsjiMapper")
+	private BbsjiMapper bbsjiMapper;
+	
+	@Override
+	public List<BbsjiVO> selectBbsjiList() throws Exception {
+		
+		return bbsjiMapper.selectBbsjiList();
+	}
+
+	@Override
+	public BbsjiVO selectBbsjiDetail(BbsjiVO bbsjiVO) throws Exception {
+		
+		return bbsjiMapper.selectBbsjiDetail(bbsjiVO);
+	}
+
+}

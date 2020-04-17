@@ -1,0 +1,40 @@
+package kr.go.negga.bbs.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import kr.go.negga.bbs.service.BbsService;
+import kr.go.negga.bbs.service.BbsVO;
+
+@Service("bbsService")
+public class BbsServiceImpl implements BbsService {
+
+	@Resource(name = "bbsMapper")
+	private BbsMapper bbsMapper;
+	
+	/** ID Generation */
+	@Resource(name = "egovIdGnrService")
+	private BbsService bbsService;
+	
+	// 전체보기
+	public List<BbsVO> selectBbsList(BbsVO bbsVO) throws Exception {
+		return bbsMapper.selectBbsList(bbsVO);
+	}
+
+	// 상세보기
+	public BbsVO selectBbs(BbsVO bbsVO) throws Exception {
+		return bbsMapper.selectBbs(bbsVO);
+	}
+
+	// 글등록
+	public String insertBbs(BbsVO bbsVO) throws Exception {
+		
+		String id = bbsService.getNextStringId();
+		bbsMapper.insertBbs(bbsVO);
+		bbsVO.setId(id);
+		return id;
+	}
+}

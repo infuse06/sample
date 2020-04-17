@@ -1,0 +1,12 @@
+function test(clickObject) {
+	console.log(clickObject);
+	var elementList = clickObject.childNodes;
+	
+	console.log(elementList);
+	
+	var condition = {};
+	condition.board_no = 0;
+	
+	
+	
+}

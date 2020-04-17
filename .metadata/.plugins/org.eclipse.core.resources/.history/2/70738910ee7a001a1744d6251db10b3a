@@ -1,0 +1,59 @@
+package kr.go.negga.bbs.service;
+
+public class BbsVO {
+	private String name;
+	private String password;
+	private String bno;
+	private String title;
+	private String content;
+	private String bdate;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getBno() {
+		return bno;
+	}
+
+	public void setBno(String bno) {
+		this.bno = bno;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getBdate() {
+		return bdate;
+	}
+
+	public void setBdate(String bdate) {
+		this.bdate = bdate;
+	}
+	
+}

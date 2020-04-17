@@ -1,0 +1,4 @@
+function test(clickObject) {
+	console.log(clickObject);
+	console.log(clickObject.innerHTML);
+}

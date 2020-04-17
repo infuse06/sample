@@ -1,0 +1,62 @@
+package kr.go.negga.bbsji.web;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import kr.go.negga.bbs.service.BbsVO;
+import kr.go.negga.bbsji.service.BbsjiService;
+import kr.go.negga.bbsji.service.BbsjiVO;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+//1번째
+@Controller
+public class BbsjiController {
+
+	//2번째
+	@Resource(name = "bbsjiService")
+	private BbsjiService bbsjiService;
+	
+	
+	@RequestMapping(value = "/bbsjiList.do")
+	public String bbsList(Model model) throws Exception {
+
+		List<BbsjiVO> aaa = bbsjiService.selectBbsjiList();
+		
+		List<BbsjiVO> bbsjiVOList = bbsjiService.selectBbsjiList();
+		
+		model.addAttribute("resultList", bbsjiVOList);
+		
+		return "bbsji/bbsList";
+	}
+
+	@RequestMapping(value = "/bbsjiDetail.do")
+	public String bbsjiDetail(@ModelAttribute("bbsjiVO") BbsjiVO bbsjiVO,Model model) throws Exception {
+		
+		System.out.println(bbsjiVO.getName());
+		System.out.println(bbsjiVO.getAge());
+		System.out.println(bbsjiVO.getSubject());
+		System.out.println(bbsjiVO.getContent());
+		
+		//고유값
+		BbsjiVO bbsjiVO2 = new BbsjiVO();
+		
+		bbsjiVO2 = bbsjiService.selectBbsjiDetail(bbsjiVO);
+		
+		
+		
+//		List<BbsjiVO> aaa = bbsjiService.selectBbsjiList();
+//		
+//		List<BbsjiVO> bbsjiVOList = bbsjiService.selectBbsjiList();
+		
+		model.addAttribute("result", bbsjiVO2);
+		
+		return "bbsji/bbsDetail";
+	}
+	
+}
+

@@ -1,0 +1,21 @@
+function test(clickObject) {
+	console.log(clickObject);
+	var elementList = clickObject.childNodes;
+	
+	console.log(elementList);
+	
+	var condition = {};
+	condition.board_no = 0;
+	
+	$.ajax({ 
+		type: "POST", 
+		url: url, 
+		data: data, 
+		dataType: "text", 
+		success: function(response) {
+			console.log(response);
+		}, 
+	});
+
+	
+}

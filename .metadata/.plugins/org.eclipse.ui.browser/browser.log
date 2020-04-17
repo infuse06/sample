@@ -1,0 +1,10 @@
+
+4월 10, 2020 15:49:13.64 NEW SESSION
+4월 10, 2020 15:49:13.64 [3812:11676:0410/154913.647:ERROR:CONSOLE(109)] "Uncaught (in promise) TypeError: Cannot read property 'parentNode' of null", source: devtools://devtools/bundled/elements/ElementsPanel.js (109)
+
+4월 13, 2020 13:06:19.14 NEW SESSION
+4월 13, 2020 13:06:19.14 [10188:8740:0413/130619.140:ERROR:persistent_memory_allocator.cc(843)] Corruption detected in shared-memory segment.
+4월 13, 2020 14:36:41.98 [10188:3776:0413/143641.985:ERROR:socket_stream.cc(218)] Closing stream with result -2
+
+4월 16, 2020 12:14:53.28 NEW SESSION
+4월 16, 2020 12:14:53.28 [7300:14220:0416/121453.278:ERROR:socket_stream.cc(218)] Closing stream with result -2

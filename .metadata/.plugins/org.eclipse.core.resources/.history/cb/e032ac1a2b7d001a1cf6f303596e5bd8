@@ -1,0 +1,48 @@
+package kr.go.negga.bbs.service;
+
+public class BbsVO {
+	private String name;
+	private String password;
+	private String board_no;
+	private String board_sub;
+	private String board_text;
+	private String board_date;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getBoard_no() {
+		return board_no;
+	}
+	public void setBoard_no(String board_no) {
+		this.board_no = board_no;
+	}
+	public String getBoard_sub() {
+		return board_sub;
+	}
+	public void setBoard_sub(String board_sub) {
+		this.board_sub = board_sub;
+	}
+	public String getBoard_text() {
+		return board_text;
+	}
+	public void setBoard_text(String board_text) {
+		this.board_text = board_text;
+	}
+	public String getBoard_date() {
+		return board_date;
+	}
+	public void setBoard_date(String board_date) {
+		this.board_date = board_date;
+	}
+	
+}

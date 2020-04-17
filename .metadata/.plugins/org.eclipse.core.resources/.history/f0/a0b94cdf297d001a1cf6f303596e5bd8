@@ -1,0 +1,31 @@
+package kr.go.negga.bbs.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import kr.go.negga.bbs.service.BbsService;
+import kr.go.negga.bbs.service.BbsVO;
+
+import org.springframework.stereotype.Service;
+
+@Service("bbsService")
+public class BbsServiceImpl implements BbsService{
+
+	@Resource(name="bbsMapper")
+	private BbsMapper bbsMapper;
+	
+	// 전체 게시글 가져오기
+	public List<BbsVO> selectBbsList(BbsVO bbsVO) throws Exception{
+		return bbsMapper.selectBbsList(bbsVO);
+	}
+	
+	public BbsVO selectBbs(BbsVO bbsVO) throws Exception{
+		return bbsMapper.selectBbs(bbsVO);
+	}
+	
+	public int userInsert(BbsVO bbsVO) throws Exception{
+		
+	}
+}
+

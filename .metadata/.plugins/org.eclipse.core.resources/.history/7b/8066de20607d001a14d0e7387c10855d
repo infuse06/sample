@@ -1,0 +1,58 @@
+package kr.go.negga.bbs.web;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.Resource;
+import kr.go.negga.bbs.service.UserVO;
+import kr.go.negga.bbs.service.UserService;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class UserController {
+	
+	@Resource(name = "userService")
+	private UserService userService;
+	
+	// 회원가입
+	@RequestMapping(value = "/bbs/userInsert.do")
+	public ModelAndView bbsuserInsert(@ModelAttribute("userVO") UserVO userVO, ModelAndView mv) throws Exception {
+
+		System.out.println("입력한 아이디 정보 : " + userVO.getId());
+		System.out.println("입력한 비밀번호 정보 : " + userVO.getPass());
+
+		// bbsService.userInsert에 bbsVO를 넣어 보내고 가저온 값을 int result에 넣는다.
+		int result = userService.userInsert(userVO);
+
+		// 확인
+		System.out.println(result);
+		
+		if (result == 1) {
+			String message = "가입되었습니다.";
+			mv.addObject("message", message);
+		} 
+
+		// ModelAndView에 addObject로 결과값과 메세지를 붙혀준다.
+		mv.addObject("result", result);
+
+		// 회원가입이 되면 다시 bbsList로 보내준다.
+		mv.setViewName("redirect:/");
+
+		return mv;
+	}
+	
+	// 아이디 체크
+	@RequestMapping(value = "/bbs/idCheck.do", produces="application/text;charset=utf8")
+	@ResponseBody
+	public String idcheck(@ModelAttribute("userVO") UserVO userVO) throws Exception{
+		
+		// user 아이디가 들어왔나 체크
+		System.out.println("아이디 체크 = " + userVO.getId());
+		
+		return mv;
+	}
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.go.negga.bbs.service.impl.BbsMapper">
+    <select id="selectBbsList" resultType="bbsVO" parameterType="bbsVO">
+   		SELECT
+			*
+		FROM 
+			member
+	</select>	
+	
+    <insert id="insertBbs" parameterType="bbsVO">
+        INSERT INTO member(name, password) VALUES (#{name}, #{password});
+    </insert>
+    
+	<!--     
+    <update id="updateBbs" parameterType="bbsVO">
+        UPDATE 
+        	BBS
+        SET
+        	ONE = #{one}
+        	,TWO = #{two}
+        	,THREE = #{three}
+    </update>
+        
+    <delete id="deleteBbs" parameterType="bbsVO">
+    	DELETE
+    	FROM
+    		BBS
+    	WHERE
+    		ONE = #{one}	    
+    </delete> 
+     -->
+</mapper>

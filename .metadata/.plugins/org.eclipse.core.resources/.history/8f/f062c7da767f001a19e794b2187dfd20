@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.go.negga.bbs.service.impl.BbsMapper">
+
+    <select id="selectBbsList" resultType="bbsVO" parameterType="bbsVO">
+   		SELECT
+			*
+		FROM 
+			board2
+	</select>
+
+	<select id="selectBbs" resultType="bbsVO" parameterType="bbsVO">
+   		SELECT
+			bno, title, content, wdate, id
+		FROM 
+			board2
+		WHERE
+			bno = #{bno}
+	</select>
+
+	<insert id="insertBbs" parameterType="bbsVO">
+		INSERT INTO board2(bno, title, content, wdate, id) 
+		VALUES (seq_board2_bno.nextval, #{title}, #{content}, sysdate, #{id})
+	</insert>
+	
+	<delete id="deleteBbs" parameterType="bbsVO">
+		DELETE FROM board2 WHERE id = #{id}
+	</delete>
+	
+</mapper>

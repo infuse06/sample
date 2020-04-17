@@ -1,0 +1,16 @@
+package kr.go.negga.bbs.service;
+
+import java.util.List;
+
+public interface BbsService {
+	public List<BbsVO> selectBbsList(BbsVO bbsVO) throws Exception;
+	
+	/**
+	 * 회원을 등록한다.
+	 * @param vo - 등록할 정보가 담긴 BbsVO
+	 * @return 등록 결과
+	 * @exception Exception
+	 */
+	String insetBbs(BbsVO bbsVO) throws Exception;
+	
+}

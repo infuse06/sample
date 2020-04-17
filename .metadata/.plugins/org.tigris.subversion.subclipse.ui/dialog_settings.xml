@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="HistoryDialog.location.x" value="1080"/>
+	<item key="HistoryDialog.location.y" value="313"/>
+	<item key="HistoryDialog.size.x" value="400"/>
+	<item key="HistoryDialog.size.y" value="400"/>
+	<item key="HistoryDialog.weights.0" value="200"/>
+	<item key="HistoryDialog.weights.1" value="200"/>
+	<item key="HistoryDialog.weights.2" value="200"/>
+	<item key="HistoryTableProvider.HistoryDialog.Revision" value="35"/>
+	<item key="HistoryTableProvider.HistoryDialog.Date" value="88"/>
+	<item key="HistoryTableProvider.HistoryDialog.Author" value="70"/>
+	<item key="HistoryTableProvider.HistoryDialog.Comment" value="174"/>
+	<item key="UpdateDialogWithConflictHandling.location.x" value="1018"/>
+	<item key="UpdateDialogWithConflictHandling.location.y" value="216"/>
+	<item key="UpdateDialogWithConflictHandling.size.x" value="525"/>
+	<item key="UpdateDialogWithConflictHandling.size.y" value="727"/>
+	<item key="HistoryTableProvider.SVNHistoryPage.Revision" value="45"/>
+	<item key="HistoryTableProvider.SVNHistoryPage.Date" value="113"/>
+	<item key="HistoryTableProvider.SVNHistoryPage.Author" value="90"/>
+	<item key="HistoryTableProvider.SVNHistoryPage.Comment" value="224"/>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="https://168.192.77.119/svn/bbsSample"/>
+			<item value="https://168.192.77.119/svn/bbsSample3"/>
+		</list>
+	</section>
+</section>

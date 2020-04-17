@@ -1,0 +1,133 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="validator"
+	uri="http://www.springmodules.org/tags/commons-validator"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<c:set var="registerFlag"
+	value="${empty sampleVO.id ? 'create' : 'modify'}" />
+<title>Sample <c:if test="${registerFlag == 'create'}">
+		<spring:message code="button.create" />
+	</c:if> <c:if test="${registerFlag == 'modify'}">
+		<spring:message code="button.modify" />
+	</c:if>
+</title>
+<link type="text/css" rel="stylesheet"
+	href="<c:url value='/css/egovframework/sample.css'/>" />
+
+<!--For Commons Validator Client Side-->
+<script type="text/javascript" src="<c:url value='/cmmn/validator.do'/>"></script>
+<script type="text/javascript" src="./scripts/lib/jquery-3.5.0.min.js"></script>
+<validator:javascript formName="sampleVO" staticJavascript="false"
+	xhtml="true" cdata="false" />
+
+<script>
+
+/* 회원가입 버튼 클릭 시 */
+function userInsert(){
+	
+	// 사용자가 입력되지 않았으면 입력하세요. 
+	if (document.form.id.value == "" && document.form.pass.value == ""){
+		alert("정보를 입력하세요.")
+		document.form.id.focus(); // focus()로 입력
+	}
+	
+	// 전송
+	document.form.submit(); 
+}
+
+/* 상세보기 클릭 시 */
+function idCheck(id, dno){
+	
+	// DB에 저장된 게시글 id
+	console.log(id);
+	
+	// 입력된 id
+ 	var inputID = document.getElementById("inputID");
+	console.log(inputID.value);
+	
+	// 입력된 password
+	var inputPass = document.getElementById("inputPass");
+	console.log(inputPass.value);
+	
+	// 입력된 정보 확인 
+	var url = "./bbs/idCheck.do"
+		$.ajax({ 
+			type: "POST", 
+			url: url, 
+			data: {
+				'id' : inputID.value,
+				'pass' : inputPass.value
+			}, 
+			success: function(response) {
+				console.log(response);
+				
+				// 두 id가 일치 하면 상세보기 페이지로
+				if ( id == inputID.value ){
+					alert("성공");
+				}
+				else {
+					alert("실패");
+				}
+			}, 
+		});
+
+}
+
+</script>
+</head>
+<body>
+	<h1>홈</h1>
+	<hr />
+	<!-- 회원가입 form -->
+	<form name="form" action="<c:url value='/bbs/userInsert.do'/>"
+		method="post">
+		<table>
+			<thead>
+				<tr>
+					<td>사용자</td>
+					<td><input type="text" name="id" id="inputID" /></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="text" name="pass" id="inputPass" /></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="회원가입" onclick="userInsert()" />
+					</td>
+				</tr>
+			</thead>
+		</table>
+	</form>
+	<hr />
+	<!-- 전체 게시글 리스트 -->
+	<table>
+		<thead>
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="result" items="${resultList }" varStatus="status">
+				<tr>
+					<td><c:out value="${result.bno }" /></td>
+					<td><a style="cursor: pointer"
+						onclick="idCheck(${result.id }, ${result.bno })">
+							${result.title }</a></td>
+					<td><c:out value="${result.id }" /></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<hr />
+	<!-- 새글작성하기 -->
+	<a href="/bbs/insertBoard.do">새글작성</a>
+
+</body>
+</html>

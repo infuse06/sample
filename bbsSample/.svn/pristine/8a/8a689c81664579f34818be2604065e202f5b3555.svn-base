@@ -1,0 +1,10 @@
+package kr.go.negga.bbsji.service;
+
+import java.util.List;
+
+public interface BbsjiService {
+
+	public List<BbsjiVO> selectBbsjiList() throws Exception;
+	
+	public BbsjiVO selectBbsjiDetail(BbsjiVO bbsjiVO) throws Exception;
+}

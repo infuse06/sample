@@ -1,0 +1,8 @@
+package kr.go.negga.bbs.service;
+
+public class BbsVO {
+	private String name;
+	
+	private String pass;
+
+}

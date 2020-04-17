@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.go.negga.bbs.service.impl.UserMapper">
+
+	<!-- 회원가입 -->
+	<insert id="userInsert" parameterType="userVO">
+		INSERT INTO member2(id, pass) VALUES (#{id}, #{pass})
+	</insert>
+
+	<!-- 아이디체크&로그인 -->
+	<select id="idCheck" parameterType="userVO" resultType="userVO">
+		SELECT *
+		FROM member2 WHERE id = #{id}
+	</select>
+</mapper>
+
+<mapper namespace="kr.go.negga.bbs.service.impl.BbsMapper">
+
+    <select id="selectBbsList" resultType="bbsVO" parameterType="bbsVO">
+   		SELECT
+			*
+		FROM 
+			board2
+	</select>
+
+	<select id="selectBbs" resultType="bbsVO" parameterType="bbsVO">
+   		SELECT
+			*
+		FROM 
+			board2
+		WHERE
+			bno = #{bno}
+	</select>
+
+	<insert id="insertBbs" parameterType="bbsVO">
+		INSERT INTO board2(bno, title, content, wdate, id) 
+		VALUES (seq_board2_bno.nextval, #{title}, #{content}, sysdate, #{id})
+	</insert>
+	
+</mapper>

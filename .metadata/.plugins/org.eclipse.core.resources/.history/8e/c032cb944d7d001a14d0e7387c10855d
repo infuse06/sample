@@ -1,0 +1,6 @@
+package kr.go.negga.bbs.service;
+
+public interface UserService {
+	// 회원가입
+	public int userInsert(UserVO userVO) throws Exception;
+}

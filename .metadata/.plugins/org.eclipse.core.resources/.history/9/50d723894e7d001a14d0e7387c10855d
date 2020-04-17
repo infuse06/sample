@@ -1,0 +1,20 @@
+package kr.go.negga.bbs.service.impl;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import kr.go.negga.bbs.service.UserVO;
+
+@Service("bbsService")
+public class BbsServiceImpl {
+
+	@Resource(name="bbsMapper")
+	private UserMapper bbsMapper;
+	
+	// 회원가입
+	public int userInsert(UserVO userVO) throws Exception{
+		return bbsMapper.userInsert(userVO);
+	}
+}
+

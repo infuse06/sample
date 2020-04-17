@@ -1,0 +1,6 @@
+function test(clickObject) {
+	console.log(clickObject);
+	var elementList = clickObject.childNodes;
+	
+	console.log(elementList);
+}

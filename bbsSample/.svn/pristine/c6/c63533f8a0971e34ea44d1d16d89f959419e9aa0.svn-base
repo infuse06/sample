@@ -1,0 +1,20 @@
+package kr.go.negga.bbsji.service.impl;
+
+import java.util.List;
+
+import kr.go.negga.bbsji.service.BbsjiVO;
+import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
+
+@Mapper("bbsjiMapper")
+public class BbsjiMapper extends EgovAbstractMapper{
+	
+	public List<BbsjiVO> selectBbsjiList() throws Exception{
+		return selectList("selectBbsjiList");
+	}
+	
+	public BbsjiVO selectBbsjiDetail(BbsjiVO bbsjiVO) throws Exception {
+		
+		return selectOne("selectBbsjiDetail",bbsjiVO);
+	}
+}

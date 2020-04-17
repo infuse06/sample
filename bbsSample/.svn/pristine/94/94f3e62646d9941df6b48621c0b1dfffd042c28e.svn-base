@@ -1,0 +1,47 @@
+package kr.go.negga.bbs.web;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import kr.go.negga.bbs.service.BbsService;
+import kr.go.negga.bbs.service.BbsVO;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class BbsController {
+
+	@Resource(name = "bbsService")
+	private BbsService bbsService;
+	
+	@RequestMapping(value = "/bbsList.do")
+	public String bbsList(Model model) throws Exception {
+		
+		BbsVO parambbsVO = new BbsVO();
+		List<BbsVO> bbsVO = bbsService.selectBbsList(parambbsVO);
+		
+		model.addAttribute("resultList", bbsVO);
+		
+		return "bbs/bbsList";
+	}
+
+	@RequestMapping(value = "/bbs/insertBbsProc.do")
+	public String insertBbsProc(@ModelAttribute("bbsVO") BbsVO bbsVO,Model model) throws Exception {
+		
+		System.out.println(bbsVO.getOne());
+		System.out.println(bbsVO.getTwo());
+		System.out.println(bbsVO.getThree());
+		
+		List<BbsVO> bbsVO2 = new ArrayList<BbsVO>();
+		bbsVO2.add(bbsVO);
+		
+		model.addAttribute("resultList", bbsVO2);
+		
+		return "bbs/bbsList";
+	}
+}
